@@ -35,6 +35,40 @@ function serveStaticFile(req, res, baseDir) {
     pathname = `/html${pathname}`;
   }
   
+  // 파비콘 처리
+  if (pathname === '/favicon.ico' || pathname === '/favicon.svg') {
+    const faviconPath = path.join(baseDir, 'public', pathname);
+    if (fs.existsSync(faviconPath)) {
+      const content = fs.readFileSync(faviconPath);
+      const contentType = MIME_TYPES[path.extname(faviconPath)] || 'image/x-icon';
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content);
+      return true;
+    }
+    
+    // root 디렉토리에서도 확인
+    const rootFaviconPath = path.join(baseDir, pathname);
+    if (fs.existsSync(rootFaviconPath)) {
+      const content = fs.readFileSync(rootFaviconPath);
+      const contentType = MIME_TYPES[path.extname(rootFaviconPath)] || 'image/x-icon';
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content);
+      return true;
+    }
+  }
+  
+  // public 디렉토리 파일 처리 시도
+  if (!pathname.startsWith('/html/') && !pathname.startsWith('/css/') && !pathname.startsWith('/js/') && !pathname.startsWith('/vibe-spec/')) {
+    const publicPath = path.join(baseDir, 'public', pathname);
+    if (fs.existsSync(publicPath)) {
+      const content = fs.readFileSync(publicPath);
+      const contentType = MIME_TYPES[path.extname(publicPath)] || 'text/plain';
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content);
+      return true;
+    }
+  }
+  
   // 파일 경로 생성
   const filePath = path.join(baseDir, pathname);
   

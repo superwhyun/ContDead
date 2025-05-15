@@ -201,6 +201,17 @@ footer p {
   font-size: 0.9rem;
 }
 
+footer a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #56c2ff;
+  text-decoration: underline;
+}
+
 /* 달력 스타일 */
 .calendar-container {
   display: flex;
