@@ -1,0 +1,17 @@
+{
+  "name": "standardization-calendar",
+  "version": "1.0.0",
+  "description": "표준화 작업을 하는 사람들을 위한 일정 관리 웹 애플리케이션",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "vercel-build": "echo 'Building for Vercel deployment'"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

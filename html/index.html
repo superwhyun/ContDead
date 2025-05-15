@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>표준화 달력 프로젝트</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <meta name="description" content="표준화 작업을 위한 회의 일정 및 기고서 마감일 관리 도구">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">표준화 달력</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/" class="active">홈</a></li>
+          <li><a href="/about">소개</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="content-box">
+      <h1>표준화 회의 달력</h1>
+      <p class="intro-text">표준화 작업을 위한 회의 일정 관리 도구입니다. 아래에서 회의 날짜를 선택하면 기고서 마감일(정기회의: 선택한 날짜로부터 12일 전, RGM: 선택한 날짜로부터 7일 전)이 자동으로 계산됩니다. 화살표 버튼으로 이전/다음 달로 이동할 수 있습니다.</p>
+
+      <div class="legend">
+        <div class="legend-item">
+          <span class="legend-color today"></span>
+          <span class="legend-text">오늘</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color selected"></span>
+          <span class="legend-text">선택한 날짜</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color regular"></span>
+          <span class="legend-text">정기회의 마감일</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color rgm"></span>
+          <span class="legend-text">RGM 마감일</span>
+        </div>
+      </div>
+
+      <div class="calendar-container" id="calendar-container">
+        <!-- 달력이 여기에 JavaScript로 생성됩니다 -->
+      </div>
+
+      <div class="selected-date-container">
+        <div class="selected-date" id="selected-date">
+          <span class="date-label">선택한 날짜</span>
+          <div class="date-info">날짜를 선택해주세요</div>
+        </div>
+        
+        <div class="deadline-date regular" id="deadline-regular">
+          <span class="date-label">정기회의 기고서 마감일 (12일 전)</span>
+          <div class="date-info">날짜를 선택해주세요</div>
+        </div>
+        
+        <div class="deadline-date rgm" id="deadline-rgm">
+          <span class="date-label">RGM 기고서 마감일 (7일 전)</span>
+          <div class="date-info">날짜를 선택해주세요</div>
+        </div>
+      </div>
+      
+      <div class="time-display">
+        현재 시간: <span id="current-time"></span>
+      </div>
+      
+      <p style="margin-top: 20px;">
+        <a href="/about" class="btn">About 페이지</a>
+        <a href="/vibe-spec/spec.yaml" class="btn" style="margin-left: 10px; background-color: #2ecc71;">프로젝트 명세서</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 표준화 달력 프로젝트. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript 파일 -->
+  <script src="/js/calendar.js"></script>
+  <script src="/js/time-display.js"></script>
+</body>
+</html>

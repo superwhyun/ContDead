@@ -1,0 +1,6 @@
+{
+  "watch": ["main.js", "server.js", "middlewares.js", "utils.js", "file-manager.js", "html/", "css/", "js/"],
+  "ext": "js,html,css",
+  "ignore": ["node_modules/"],
+  "delay": "500"
+}
