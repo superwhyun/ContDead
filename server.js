@@ -43,4 +43,4 @@ if (process.env.NODE_ENV !== 'production') {
     // 서버 시작 시 필요한 디렉토리와 파일 확인/생성
     ensureDirectoriesAndFiles(baseDir);
   });
-} //%%%%% LAST %%%%%
+}
