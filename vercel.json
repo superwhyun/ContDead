@@ -1,14 +1,11 @@
 {
   "version": 2,
-  "functions": {
-    "api/index.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
+  "buildCommand": "npm run vercel-build",
+  "devCommand": "npm run dev",
+  "outputDirectory": "public",
   "routes": [
-    { "src": "/favicon.ico", "dest": "/public/favicon.ico" },
-    { "src": "/favicon.svg", "dest": "/public/favicon.svg" },
-    { "src": "/(.*)", "dest": "/api/index.js" }
+    { "handle": "filesystem" },
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
